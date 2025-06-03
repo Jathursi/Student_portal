@@ -1,0 +1,23 @@
+@model StudentPortal.Web.Models.AddStudentViewModel
+<h1>Add Student</h1>
+<form>
+    <div class="mt-3">
+        <lable class="form-label">Name</lable>
+        <input type="text" class="form-control" asp-for="Name"/>
+    </div>
+    <div class="mt-3">
+        <lable class="form-label">Email</lable>
+        <input type="email" class="form-control" asp-for="Email"/>
+    </div>
+    <div class="mt-3">
+        <lable class="form-label">Phone Numbe</lable>
+        <input type="text" class="form-control" asp-for="PhoneNumber"/>
+    </div>
+    <div class="mt-3">
+        <input type="checkbox" class="form-check-input" id="Subscribed" asp-for="Subscribed"/>
+        <lable class="form-check-label">Subscribed</lable>
+    </div>
+    <div class="mt-3">
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </div>
+</form>
