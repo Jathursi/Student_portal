@@ -20,6 +20,9 @@ The app allows users to:
 
 ```
 
+---
+
+```
 StudentPortal/
 │
 ├── Controllers/
@@ -36,6 +39,10 @@ StudentPortal/
 ├── appsettings.json
 ├── Program.cs
 └── Startup.cs (for .NET Core 3.x or earlier)
+```
+
+---
+
 
 ````
 
