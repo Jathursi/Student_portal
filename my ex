@@ -5,4 +5,5 @@
 
  C:\Program Files\Microsoft SQL Server\160\Setup Bootstrap\Log\20250603_101645
 
- 
+ Passwod hash
+  dotnet add package Microsoft.AspNetCore.Identity

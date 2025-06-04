@@ -10,6 +10,8 @@ namespace StudentPortal.Web.ViewData
 
         }
         // using from model entities  teeling it to create table for student
-        public DbSet<Student> Students { get; set; } 
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Staff> Staffs { get; set; }
+        public DbSet<Course> Courses { get; set; }
     }
 }

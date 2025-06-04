@@ -1,0 +1,51 @@
+@model List<StudentPortal.Web.Models.Entities.Staff>
+<h1>Staff</h1>
+
+<a class="btn btn-primary mb-3" asp-controller="Staff" asp-action="AddStaff">Add Student</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Subscribed</th>
+            <th>Entrollment Key</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var index = 1;
+        }
+        @foreach(var staff in Model){
+            <tr>
+                <td id="id_std">@index</td>
+                <td>@staff.Sta_Name</td>
+                <td>@staff.Sta_Email</td>
+                <td>@staff.Sta_PhoneNumber</td>
+
+                <td>
+                    @if(@staff.Sta_Subscribed == true){
+                        <span class="text-success font-bold">✓</span>
+                    } else {
+                        <span class="text-success">❌</span>
+                    }
+                </td>
+                <td>@staff.Sta_Entrollment</td>
+                <td>
+                    <a class='btn btn-primary' asp-controller="Staff" asp-action="EditStaff" asp-route-id="@staff.Id">Edit</a>
+                    <form asp-action="Delete" asp-controller="Staff" method="post" style="display:inline">
+                        <input type="hidden" name="Id" value="@staff.Id" />
+                        <button class="btn btn-danger ms-3" type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            index++;
+        }
+    </tbody>
+</table>
+
+
+@* <h1>Staff</h1> *@

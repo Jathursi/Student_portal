@@ -1,0 +1,19 @@
+@model StudentPortal.Web.Models.AddCourseViewModel
+
+<h2>Add Course</h2>
+
+<form asp-action="AddCourse" asp-controller="Course" enctype="multipart/form-data" method="post">
+    <div class="form-group">
+        <label asp-for="Title"></label>
+        <input asp-for="Title" class="form-control" />
+        <span asp-validation-for="Title" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ImageData"></label>
+        <input asp-for="ImageData" type="file" class="form-control" />
+        <span asp-validation-for="ImageMimeType" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Course</button>
+</form>

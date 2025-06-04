@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using StudentPortal.Web.Models;
 using StudentPortal.Web.Models.Entities;
 using StudentPortal.Web.ViewData;
-
+using Microsoft.AspNetCore.Identity;
 namespace StudentPortal.Web.Controllers
 {
     public class StudentController : Controller
@@ -31,7 +31,11 @@ namespace StudentPortal.Web.Controllers
                 Email = viewModel.Email,
                 PhoneNumber = viewModel.PhoneNumber,
                 Subscribed = viewModel.Subscribed,
+                Entrollment = viewModel.Entrollment, 
+                // password = viewModel.password 
             };
+            var hasher = new PasswordHasher<Student>();
+            student.password = hasher.HashPassword(student, viewModel.password);
 
             await dbContext.Students.AddAsync(student);
             await dbContext.SaveChangesAsync();
@@ -90,6 +94,8 @@ namespace StudentPortal.Web.Controllers
                 student.Email = viewModel.Email;
                 student.PhoneNumber = viewModel.PhoneNumber;
                 student.Subscribed = viewModel.Subscribed;
+                student.Entrollment = viewModel.Entrollment;
+                // student.password = viewModel.password;
 
                 await dbContext.SaveChangesAsync();
             }

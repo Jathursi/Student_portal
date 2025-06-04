@@ -6,5 +6,7 @@ namespace StudentPortal.Web.Models
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
         public bool Subscribed { get; set; }
+        public string Entrollment { get; set; } 
+        public string password { get; set; } 
     }
 }

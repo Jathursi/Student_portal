@@ -20,18 +20,27 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                        @* <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li> *@
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="List">Students</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Student" asp-action="List">All Student</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Staff" asp-action="ListStaff">Staff</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Course" asp-action="ListCourse">Courses</a>
                         </li>
                     </ul>
+                    <ul class="navbar-nav mx-5 d-flex justify-content-center align-items-center">
+                        <li class="nav-item">Quiz</li>
+                    </ul>
                 </div>
-            </div>
+            </div>  
         </nav>
     </header>
     <div class="container">

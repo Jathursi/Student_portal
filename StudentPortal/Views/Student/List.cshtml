@@ -12,16 +12,21 @@
             <th>Email</th>
             <th>Phone</th>
             <th>Subscribed</th>
-            <th></th>
+            <th>Entrollment Key</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
+        @{
+            var index = 1;
+        }
         @foreach(var student in Model){
             <tr>
-                <td>@student.Id</td>
+                <td id="id_std">@index</td>
                 <td>@student.Name</td>
                 <td>@student.Email</td>
                 <td>@student.PhoneNumber</td>
+
                 <td>
                     @if(@student.Subscribed == true){
                         <span class="text-success font-bold">✓</span>
@@ -29,6 +34,7 @@
                         <span class="text-success">❌</span>
                     }
                 </td>
+                <td>@student.Entrollment</td>
                 <td>
                     <a class='btn btn-primary' asp-controller="Student" asp-action="Edit"
                         asp-route-id="@student.Id">Edit</a>
@@ -39,6 +45,7 @@
 
                 </td>
             </tr>
+            index++;
         }
     </tbody>
 </table>
