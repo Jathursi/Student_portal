@@ -1,8 +1,6 @@
-Here is the full and properly formatted `README.md` file for your **Student Portal - ASP.NET Core MVC Application** project:
-
 ---
 
-```markdown
+```
 # 📘 Student Portal - ASP.NET Core MVC Application
 
 This is a simple Student Portal web application built using ASP.NET Core MVC.
@@ -16,9 +14,9 @@ The app allows users to:
 
 ---
 
-## 📁 Project Structure
 
 ```
+📁 Project Structure
 
 ---
 
