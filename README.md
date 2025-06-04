@@ -5,23 +5,6 @@ This is a simple Student Portal web application built using ASP.NET Core MVC. Th
 ❤ Edit student details
 ❤ Delete a student
 
-📂 Project Structure
-StudentPortal/
-│
-├── Controllers/
-│   └── StudentController.cs
-├── Models/
-│   └── Entities/
-│       └── Student.cs
-├── Views/
-│   └── Student/
-│       ├── Index.cshtml
-│       ├── Add.cshtml
-│       └── Edit.cshtml
-├── wwwroot/
-├── appsettings.json
-└── Program.cs
-
 🛠️ Installation and Setup
 1. Clone the repository
 Option A:
