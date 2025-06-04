@@ -1,5 +1,8 @@
-@* @model List<StudentPortal.Web.Models.Entities.Student>
+@model List<StudentPortal.Web.Models.Entities.Student>
 <h1>Students</h1>
+
+@* <button class="btn btn-primary mb-3" asp-controller="Student" asp-action="Add">Add Student</button> *@
+<a class="btn btn-primary mb-3" asp-controller="Student" asp-action="Add">Add Student</a>
 
 <table class="table">
     <thead>
@@ -8,6 +11,7 @@
             <th>Name</th>
             <th>Email</th>
             <th>Phone</th>
+            <th>Subscribed</th>
             <th></th>
         </tr>
     </thead>
@@ -17,16 +21,29 @@
                 <td>@student.Id</td>
                 <td>@student.Name</td>
                 <td>@student.Email</td>
+                <td>@student.PhoneNumber</td>
                 <td>
-                    <a class='btn btn-primary' asp-controller="Student" asp-action="Edit" asp-route="Student.Id">Edit</a>
+                    @if(@student.Subscribed == true){
+                        <span class="text-success font-bold">✓</span>
+                    } else {
+                        <span class="text-success">❌</span>
+                    }
+                </td>
+                <td>
+                    <a class='btn btn-primary' asp-controller="Student" asp-action="Edit"
+                        asp-route-id="@student.Id">Edit</a>
+                    <form asp-action="Delete" asp-controller="Student" method="post" style="display:inline">
+                        <input type="hidden" name="Id" value="@student.Id" />
+                        <button class="btn btn-danger ms-3" type="submit">Delete</button>
+                    </form>
 
                 </td>
             </tr>
         }
     </tbody>
-</table> *@
+</table>
 
-<h1>Students</h1>
+@* <h1>Students</h1>
 
 <table class="table">
     <thead>
@@ -45,10 +62,8 @@
             <td>JAt@gmail</td>
             <td>7669789798</td>
             <td>
-                @* <a>Edit</a> *@
                 <a asp-controller="Student" asp-action="Edit" class='btn btn-primary'>Edit</a>
-                <button class="btn btn-danger ms-3" asp-action="Delete" asp-controller="Student" type="submit">Delete</button>
             </td>
         </tr>
     </tbody>
-</table>
+</table> *@

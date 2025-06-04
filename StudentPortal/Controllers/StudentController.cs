@@ -19,45 +19,66 @@ namespace StudentPortal.Web.Controllers
             return View();
         }
         [HttpPost]
+        // [HttpPost]
         public async Task<IActionResult> Add(AddStudentViewModel viewModel)
         {
-            var Student = new Student
+            if (!ModelState.IsValid)
+                return View(viewModel); // Return view with errors
+
+            var student = new Student
             {
                 Name = viewModel.Name,
                 Email = viewModel.Email,
                 PhoneNumber = viewModel.PhoneNumber,
                 Subscribed = viewModel.Subscribed,
             };
-            await dbContext.Students.AddAsync(Student);
+
+            await dbContext.Students.AddAsync(student);
             await dbContext.SaveChangesAsync();
-            return View();
+
+            return RedirectToAction("List", "Student"); // Optional: redirect to list
         }
 
-        [HttpGet]
-        // // this is to Read from backend
-        // public async Task<IActionResult> List()
+        // public async Task<IActionResult> Add(AddStudentViewModel viewModel)
         // {
-        //     // var Student = await dbContext.Students.ToListAsync();
-        //     // return View(Student);
-        // }
-
-        // Comment it after connect
-        [HttpGet]
-        public IActionResult List()
-        {
-            return View();
-        }
-
-        // [HttpGet]
-        // public async Task<IActionResult> Edit(Guid id)
-        // {
-        //     var student = await dbContext.Students.FindAsync(id);
+        //     var Student = new Student
+        //     {
+        //         Name = viewModel.Name,
+        //         Email = viewModel.Email,
+        //         PhoneNumber = viewModel.PhoneNumber,
+        //         Subscribed = viewModel.Subscribed,
+        //     };
+        //     await dbContext.Students.AddAsync(Student);
+        //     await dbContext.SaveChangesAsync();
         //     return View();
         // }
-        public IActionResult Edit()
+
+        [HttpGet]
+        // this is to Read from backend
+        public async Task<IActionResult> List()
         {
-            return View();
+            var Student = await dbContext.Students.ToListAsync();
+            return View(Student);
         }
+
+        // Comment it after connect
+        // [HttpGet]
+        // public IActionResult List()
+        // {
+        //     return View();
+        // }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(Guid id)
+        {
+            var student = await dbContext.Students.FindAsync(id);
+            if (student == null)
+            {
+                return NotFound();  // or return a view with an error message
+            }
+            return View(student);  // pass the student to the view
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> Edit(Student viewModel)
@@ -75,21 +96,15 @@ namespace StudentPortal.Web.Controllers
             return RedirectToAction("List", "Student");
         }
         [HttpPost]
-        public async Task<IActionResult> Delete(Student viewModel)
+        public async Task<IActionResult> Delete(Guid Id)
         {
-            //Try this if not worked
-            // var student = await dbContext.Students.FindAsync(viewModel.Id);
-            // Try this
-            var student = await dbContext.Students
-                .AsNoTracking()
-                .FirstOrDefaultAsync(x => x.Id == viewModel.Id);
-                
-            if (student is not null)
+            var student = await dbContext.Students.FindAsync(Id);
+            if (student != null)
             {
-                dbContext.Students.Remove(viewModel);
+                dbContext.Students.Remove(student);
                 await dbContext.SaveChangesAsync();
             }
-            return RedirectToAction("List", "Student");
+            return RedirectToAction("List");
         }
     }
 }
