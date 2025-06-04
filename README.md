@@ -13,10 +13,10 @@ The app allows users to:
 - ❤ Delete a student  
 
 ---
+📁 Project Structure
 
 
 ```
-📁 Project Structure
 
 ---
 
