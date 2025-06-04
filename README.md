@@ -15,11 +15,11 @@ The app allows users to:
 
 ---
 
-## 📁 Project Structure
 
 ```
 
 ---
+## 📁 Project Structure
 
 ```
 StudentPortal/
