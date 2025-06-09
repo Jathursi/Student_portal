@@ -1,4 +1,3 @@
-Here is the full and properly formatted `README.md` file for your **Student Portal - ASP.NET Core MVC Application** project:
 
 ---
 
@@ -16,10 +15,13 @@ The app allows users to:
 
 ---
 
-## 📁 Project Structure
 
 ```
 
+---
+## 📁 Project Structure
+
+```
 StudentPortal/
 │
 ├── Controllers/
@@ -36,6 +38,10 @@ StudentPortal/
 ├── appsettings.json
 ├── Program.cs
 └── Startup.cs (for .NET Core 3.x or earlier)
+```
+
+---
+
 
 ````
 
